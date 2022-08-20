@@ -1,0 +1,22 @@
+{
+  "extends": [
+    "config:base",
+    "npm:unpublishSafe",
+    ":gitSignOff"
+  ],
+  "labels": ["dependencies"],
+  "packageRules": [
+    {
+      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "bump"],
+      "automerge": true,
+      "automergeType": "branch"
+    },
+  ],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "branch"
+  },
+  "prConcurrentLimit": 2,
+  "branchConcurrentLimit": 4
+}
