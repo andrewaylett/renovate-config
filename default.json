@@ -2,7 +2,8 @@
   "extends": [
     "config:base",
     "npm:unpublishSafe",
-    ":gitSignOff"
+    ":gitSignOff",
+    ":enablePreCommit"
   ],
   "labels": ["dependencies"],
   "packageRules": [
