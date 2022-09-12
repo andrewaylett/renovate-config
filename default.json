@@ -1,7 +1,6 @@
 {
   "extends": [
     "config:base",
-    "npm:unpublishSafe",
     ":gitSignOff",
     ":enablePreCommit"
   ],
@@ -10,14 +9,24 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest", "bump"],
       "automerge": true,
-      "automergeType": "branch"
+      "automergeType": "pr",
+      "prCreation": "not-pending"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "automerge": true,
+      "automergeType": "pr"
     },
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
-    "automergeType": "branch"
+    "automergeType": "pr",
+    "prCreation": "not-pending"
   },
-  "prConcurrentLimit": 2,
-  "branchConcurrentLimit": 4
+  "platformAutomerge": true,
+  "platformCommit": true,
+  "postUpdateOptions": ["npmDedupe"],
+  "branchConcurrentLimit": 4,
+  "prConcurrentLimit":2
 }
