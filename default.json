@@ -9,20 +9,19 @@
     {
       "matchUpdateTypes": ["minor", "patch", "pin", "digest", "bump"],
       "automerge": true,
-      "automergeType": "pr",
-      "prCreation": "not-pending"
+      "automergeType": "pr"
     },
     {
       "matchUpdateTypes": ["major"],
       "automerge": true,
-      "automergeType": "pr"
+      "automergeType": "pr",
+      "prCreation": "not-pending"
     },
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
-    "automergeType": "pr",
-    "prCreation": "not-pending"
+    "automergeType": "pr"
   },
   "platformAutomerge": true,
   "platformCommit": true,
