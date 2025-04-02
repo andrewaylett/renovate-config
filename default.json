@@ -1,31 +1,50 @@
 {
   "extends": [
-    "config:base",
+    "config:best-practices",
     ":gitSignOff",
-    ":enablePreCommit"
+    ":enablePreCommit",
+    ":configMigration"
   ],
-  "labels": ["dependencies"],
+  "addLabels": [
+    "dependencies"
+  ],
   "packageRules": [
     {
-      "matchUpdateTypes": ["minor", "patch", "pin", "digest", "bump"],
+      "matchUpdateTypes": [
+        "minor",
+        "patch",
+        "pin",
+        "digest",
+        "bump"
+      ],
       "automerge": true,
       "automergeType": "pr"
     },
     {
-      "matchUpdateTypes": ["major"],
+      "matchUpdateTypes": [
+        "major"
+      ],
       "automerge": true,
       "automergeType": "pr",
-      "prCreation": "not-pending"
-    },
+      "prCreation": "not-pending",
+      "addLabels": [
+        "major"
+      ]
+    }
   ],
   "lockFileMaintenance": {
     "enabled": true,
     "automerge": true,
-    "automergeType": "pr"
+    "automergeType": "pr",
+    "addLabels": [
+      "lock file"
+    ]
   },
   "platformAutomerge": true,
-  "platformCommit": true,
-  "postUpdateOptions": ["npmDedupe"],
+  "platformCommit": "auto",
+  "postUpdateOptions": [
+    "npmDedupe"
+  ],
   "branchConcurrentLimit": 4,
-  "prConcurrentLimit":2
+  "prConcurrentLimit": 2
 }
