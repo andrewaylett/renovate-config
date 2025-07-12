@@ -9,8 +9,8 @@ jobs:
     permissions:
       contents: write
     steps:
-    - uses: actions/checkout@v4.2.2
-    - uses: andrewaylett/pre-commit-action@v4
+    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+    - uses: andrewaylett/pre-commit-action@27dadc799057e37caf92ef17bf3407ba528bac20 # v4
 
     - name: Create tag
       id: tag
