@@ -1,0 +1,41 @@
+on:
+  push:
+    branches: [main]
+    paths: [removate.json]
+
+jobs:
+  tag:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+    - uses: actions/checkout@v4.2.2
+    - uses: andrewaylett/pre-commit-action@v4.2.0-12
+
+    - name: Create tag
+      id: tag
+      run: |
+        # Tag the version of the Renovate configuration
+        set -euxo pipefail
+        # Get the current release count
+        git fetch --tags
+        RELEASE_COUNT=$(git tag | grep -c "^v" || true | tr -d '\n')
+
+        # Create and push the new tag with v prefix
+        NEW_TAG="v$RELEASE_COUNT"
+        echo "Creating new tag: $NEW_TAG"
+        git config user.name "GitHub Actions"
+        git config user.email "actions@github.com"
+        git tag "$NEW_TAG"
+
+        # Push both tags
+        git push origin "$NEW_TAG"
+
+        echo "new-tag=$NEW_TAG" >> "${GITHUB_OUTPUT}"
+
+    - name: Release
+      uses: softprops/action-gh-release@72f2c25fcb47643c292f7107632f7a47c1df5cd8 # v2.3.2
+      with:
+        tag_name: ${{ steps.tag.outputs.new-tag }}
+        generate_release_notes: true
+        make_latest: true
