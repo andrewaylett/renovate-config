@@ -40,6 +40,14 @@
       "lock file"
     ]
   },
+  "pinDigest": {
+    "enabled": true,
+    "automerge": true,
+    "automergeType": "pr",
+    "addLabels": [
+      "pin digest"
+    ]
+  },
   "platformAutomerge": true,
   "platformCommit": "auto",
   "branchConcurrentLimit": 4,
