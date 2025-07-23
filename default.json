@@ -42,9 +42,6 @@
   },
   "platformAutomerge": true,
   "platformCommit": "auto",
-  "postUpdateOptions": [
-    "npmDedupe"
-  ],
   "branchConcurrentLimit": 4,
   "prConcurrentLimit": 2
 }
