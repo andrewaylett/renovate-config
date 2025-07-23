@@ -1,4 +1,5 @@
 on:
+  workflow_dispatch:
   push:
     branches: [main]
     paths: [default.json]
@@ -22,7 +23,7 @@ jobs:
         RELEASE_COUNT=$(git tag | grep -c "^v" || true | tr -d '\n')
 
         # Create and push the new tag with v prefix
-        NEW_TAG="v$RELEASE_COUNT"
+        NEW_TAG="v$((RELEASE_COUNT + 1))"
         echo "Creating new tag: $NEW_TAG"
         git config user.name "GitHub Actions"
         git config user.email "actions@github.com"
