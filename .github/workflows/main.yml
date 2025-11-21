@@ -6,4 +6,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
-    - uses: andrewaylett/pre-commit-action@8cb2f497f6e860c4bf8f41b5de1173a161113b93 # v4
+    - uses: andrewaylett/pre-commit-action@659d7531b80ebb5da915ce4fedffa4494e86e55a # v4
