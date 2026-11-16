@@ -11,7 +11,7 @@ jobs:
       contents: write
     steps:
     - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-    - uses: andrewaylett/pre-commit-action@235a833bcb6c7d9b58edc0d9a0d50f1b36cad056 # v4
+    - uses: andrewaylett/pre-commit-action@d823a86106ca152c1ed1c8d1fe74dfb61cf1b994 # v4
 
     - name: Create tag
       id: tag
